@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BlogItem>
+@using ContentModels = Umbraco.Web.PublishedModels
+@{
+    Layout = "master.cshtml";
+}
+
+@* the fun starts here *@
+
+@{
+    DateTime publishedDate = @Model.PublishedDate;
+ }
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="major special">
+            <h2>@Model.Value("blogTitle")</h2>
+        </header>
+
+        <span class="image">
+            <a href="#" class=""><img src="@Model.BlogImage" alt="" /></a>
+        </span>
+        <p>@Model.BlogArticle</p>
+        <hr />
+        <ul>
+            <li>Publish Date: @publishedDate.ToLongDateString()</li>
+            <li>Author Date: @Model.BlogAuthor</li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ArticlesMain>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+}
+
+
+@* Here we are selecting all of the model children where the property visible is set to true and then order descending by the property CreateDate *@
+@{
+    var selection = Model.Children("articlesItem")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+
+ }
+
+<section id="main" class="wrapper">
+    <div class="inner align-center">
+        <header class="major special">
+            <h2>@Model.Value("articlesTitle")</h2>
+        </header>
+
+        <p class="">@Model.Value("articlesBodyText")</p>
+
+        <ul>
+            @foreach (var item in selection)
+            {
+                <article class="special">
+                    <div class="articletitle">
+                        <a href="@item.Url">@item.Name</a>
+                    </div>
+                    <div class="articlepreview">
+                        <p>@item.Value("articleContent").ToString().Truncate(100)</p>
+                        <a href="@item.Url">Read More..</a>
+                    </div>
+                </article>
+                <hr />
+            }
+        </ul>
+
+
+
+    </div>
+</section>

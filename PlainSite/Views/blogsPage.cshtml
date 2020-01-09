@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BlogContainer>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+    Layout = "master.cshtml";
+}
+
+@{
+    var blogposts = Model.Children().OfType<ContentModels.BlogItem>().Where(x => x.IsVisible()).OrderByDescending(x => x.PublishedDate);
+}
+
+<section id="main" class="wrapper">
+    <div class="inner align-center">
+        <header class="major special">
+            <h2>@Model.Value("pageTitle")</h2>
+        </header>
+
+        <p class="">@Model.Value("description")</p>
+
+        <ul>
+            @foreach (var blog in blogposts)
+            {
+                <article class="special">
+                    <div class="articletitle">
+                        <a href="@blog.Url">@blog.Name</a>
+                    </div>
+                    <div class="articlepreview">
+                        <p>@blog.Value("blogArticle").ToString().Truncate(150)</p>
+                        <a href="@blog.Url">Read More..</a>
+                    </div>
+                </article>
+                <hr />
+                <hr />
+            }
+        </ul>
+
+
+
+    </div>
+</section>
