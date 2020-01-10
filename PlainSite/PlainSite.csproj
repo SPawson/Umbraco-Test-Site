@@ -2377,6 +2377,8 @@
     <Content Include="Views\ArticlesMain.cshtml" />
     <Content Include="Views\blogsPage.cshtml" />
     <Content Include="Views\blogItem.cshtml" />
+    <Content Include="Views\Partials\Navbar.cshtml" />
+    <Content Include="Views\Partials\blogsRender.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

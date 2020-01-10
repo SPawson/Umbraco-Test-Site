@@ -6,6 +6,8 @@
 }
 
 @{
+    @*This is selecting the children in the model of type .blogitem where the is visible prop is set to true. You then order this by the published 
+        date prop and order this by descending*@
     var blogposts = Model.Children().OfType<ContentModels.BlogItem>().Where(x => x.IsVisible()).OrderByDescending(x => x.PublishedDate);
 }
 
@@ -20,17 +22,9 @@
         <ul>
             @foreach (var blog in blogposts)
             {
-                <article class="special">
-                    <div class="articletitle">
-                        <a href="@blog.Url">@blog.Name</a>
-                    </div>
-                    <div class="articlepreview">
-                        <p>@blog.Value("blogArticle").ToString().Truncate(150)</p>
-                        <a href="@blog.Url">Read More..</a>
-                    </div>
-                </article>
-                <hr />
-                <hr />
+                
+               Html.RenderPartial("blogsRender", blog);
+                
             }
         </ul>
 

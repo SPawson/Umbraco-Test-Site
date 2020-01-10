@@ -4,6 +4,12 @@
     Layout = "master.cshtml";
 }
 
+@{
+
+    Model.Value<int>("blogImage");
+ }
+
+
 @* the fun starts here *@
 
 @{
@@ -17,7 +23,21 @@
         </header>
 
         <span class="image">
-            <a href="#" class=""><img src="@Model.BlogImage" alt="" /></a>
+
+            @{
+                @*You select the blogImage file as a IPublishedContent type, check its not returned null and the render the image
+                    which allows you to access the url property of the blog image.    
+                *@
+                var typedMediaPickerSingle = Model.Value<IPublishedContent>("blogImage");
+                if (typedMediaPickerSingle != null)
+                {
+                    <img src="@typedMediaPickerSingle.Url" style="width:200px" alt="@typedMediaPickerSingle.Value("alt")" />
+                }
+            }
+
+
+
+            @*<a href="#" class=""><img src="@Model.BlogImage" alt="" /></a>*@
         </span>
         <p>@Model.BlogArticle</p>
         <hr />

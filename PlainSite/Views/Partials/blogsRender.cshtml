@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlogItem>
+
+<ul>
+
+    <article class="special">
+        <div id="blog-title" class="">
+            <a class="title" href="@Model.Url">@Model.Name</a>
+        </div>
+
+
+        @if (Model.BlogImage != null)
+        {
+
+
+        <img src="@Model.BlogImage.Url" style="width:200px" alt="" />
+        }
+
+
+        <div class="articlepreview">
+            <p>@Model.Value("blogArticle").ToString().Truncate(150)</p>
+            <a href="@Model.Url">Read More..</a>
+            <ul>
+                <li>Publish Date: @Model.PublishedDate.ToLongDateString()</li>
+                <li>Author Date: @Model.BlogAuthor</li>
+            </ul>
+        </div>
+    </article>
+    <hr />
+
+</ul>

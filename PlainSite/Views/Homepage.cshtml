@@ -1,9 +1,17 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.Homepage>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Homepage>
+@using ContentModels = Umbraco.Web.PublishedModels;
 
 @{
-    Layout = "master.cshtml"; 
+    Layout = "master.cshtml";
 }
 
+@{ 
+
+    var blogs = Model.Root().FirstChild<ContentModels.BlogContainer>().Children<ContentModels.BlogItem>().OrderByDescending(x => x.PublishedDate).ToList();
+
+
+
+}
 
 
     
@@ -46,27 +54,23 @@
         </div>
     </section>
     <!-- Two -->
-    <section id="two" class="wrapper special">
-        <div class="inner">
-            <header class="major narrow">
-                <h2>Aliquam Blandit Mauris</h2>
-                <p>@Model.Value("articleContent")</p>
+    <section id="main" class="wrapper">
+        <div class="inner align-center">
+            <header class="major special">
+                <h2>Featured Blogs</h2>
             </header>
-            <div class="image-grid">
-                <a href="#" class="image"><img src="/images/pic03.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic04.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic05.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic06.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic07.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic08.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic09.jpg" alt="" /></a>
-                <a href="#" class="image"><img src="/images/pic10.jpg" alt="" /></a>
-            </div>
-            <ul class="actions">
-                <li><a href="#" class="button big alt">Tempus Aliquam</a></li>
-            </ul>
+
+            @foreach (var blog in blogs)
+            {
+                Html.RenderPartial("blogsRender", blog );
+            }
+
+
         </div>
     </section>
+    
+
+
     <!-- Three -->
     <section id="three" class="wrapper style3 special">
         <div class="inner">
