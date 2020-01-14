@@ -278,6 +278,8 @@ Umbraco.Web.Cache.MemberGroupCacheRefresher, Umbraco.Web, Version=8.0.0.0, Cultu
 Umbraco.Web.Cache.PublicAccessCacheRefresher, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Cache.TemplateCacheRefresher, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Cache.UserCacheRefresher, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+PlainSite.controller.ArticlesMainController, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+PlainSite.controller.BlogContainerController, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Composing.IComposer
 
@@ -350,6 +352,8 @@ Umbraco.Web.Controllers.UmbLoginController, Umbraco.Web, Version=8.0.0.0, Cultur
 Umbraco.Web.Mvc.IRenderMvcController
 
 Umbraco.Web.Mvc.RenderMvcController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+PlainSite.controller.ArticlesMainController, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+PlainSite.controller.BlogContainerController, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.WebApi.UmbracoApiController
 
@@ -565,6 +569,26 @@ Umbraco.Web.HealthCheck.Checks.Security.HttpsCheck, Umbraco.Web, Version=8.0.0.0
 Umbraco.Web.HealthCheck.NotificationMethods.IHealthCheckNotificationMethod
 
 Umbraco.Web.HealthCheck.NotificationMethods.EmailNotificationMethod, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+
+Umbraco.Core.Models.PublishedContent.PublishedElementModel
+
+
+Umbraco.Core.Models.PublishedContent.PublishedContentModel
+
+Umbraco.Web.PublishedModels.Homepage, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.SimpleContentPage, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ArticlesItem, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ArticlesMain, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.BlogContainer, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.BlogItem, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Header, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Product, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ProductArea, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Folder, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Image, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.File, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.BlogImage, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Member, PlainSite, Version=0.0.0.4, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Deploy.IServiceConnector
 

@@ -394,9 +394,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\TEMP\ClientDependency\ED-LPT-274-31552bde4ee9929b8ce2685f1056cf52-map.xml" />
-    <Content Include="App_Data\TEMP\DistCache\LMW3SVC2ROOT-lastsynced.txt" />
-    <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -2173,12 +2170,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Models\all.generated.cs" />
     <Compile Include="App_Data\Models\models.generated.cs" />
+    <Compile Include="controller\ArticlesMainController.cs" />
+    <Compile Include="controller\blogContainerController.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ArticleMainViewModel.cs" />
+    <Compile Include="ViewModels\BlogContainerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="config\imageprocessor\security.config" />
@@ -2193,8 +2192,6 @@
     <Content Include="config\HealthChecks.config" />
     <Content Include="config\ClientDependency.config" />
     <Content Include="config\BackOfficeTours\getting-started.json" />
-    <Content Include="App_Data\Models\all.dll.path" />
-    <Content Include="App_Data\Models\models.hash" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
@@ -2224,40 +2221,6 @@
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
     <Content Include="assets\sass\main.scss" />
-    <Content Include="App_Data\packages\installedPackages.config" />
-    <Content Include="App_Data\TEMP\ClientDependency\1_60880505664b46f79bd090ba135e089a.cdC" />
-    <Content Include="App_Data\TEMP\ClientDependency\1_f3726881a2194537abd2d4aaf5fad8e7.cdJ" />
-    <Content Include="App_Data\TEMP\ClientDependency\1_fca2a66b2dbb48fb98758987bbdbe363.cdJ" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\segments_6" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_0.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_0_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_1.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_1_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_2.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_2_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_3.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_3_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\External\_4.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\segments_6" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_0.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_0_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_1_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_2.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_2_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_3.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_3_1.del" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Internal\_4.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Members\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\Members\segments_1" />
-    <Content Include="App_Data\TEMP\NuCache\NuCache.Content.db" />
-    <Content Include="App_Data\TEMP\NuCache\NuCache.Media.db" />
-    <Content Include="App_Data\TEMP\TypesCache\umbraco-types.ED-LPT-274.hash" />
-    <Content Include="App_Data\TEMP\TypesCache\umbraco-types.ED-LPT-274.list" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.ED-LPT-274.20200107.json" />
-    <Content Include="App_Data\Logs\UmbracoTraceLog.ED-LPT-274.20200108.json" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -2379,6 +2342,8 @@
     <Content Include="Views\blogItem.cshtml" />
     <Content Include="Views\Partials\Navbar.cshtml" />
     <Content Include="Views\Partials\blogsRender.cshtml" />
+    <Content Include="Views\productArea.cshtml" />
+    <Content Include="Views\product.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2391,8 +2356,10 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\TEMP\FileUploads\" />
-    <Folder Include="App_Data\TEMP\Install\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Views\ArticleMain\" />
+    <Folder Include="Views\blogContainer\" />
+    <Folder Include="Views\blogsPage\" />
     <Folder Include="Views\MacroPartials\" />
   </ItemGroup>
   <PropertyGroup>
