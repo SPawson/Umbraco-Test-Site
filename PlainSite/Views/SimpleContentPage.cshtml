@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SimpleContentPage>
     @using ContentModels = Umbraco.Web.PublishedModels;
     @{
-    Layout = "master.cshtml";
+        Layout = "master.cshtml";
     }
 
 <section id="main" class="wrapper">
@@ -14,5 +14,11 @@
             <a href="#" class=""><img src="/images/pic03.jpg" alt="" /></a>
         </span>
         <p>@Model.Value("bodyText")</p>
+    </div>
+</section>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        @{Html.RenderPartial("ContactForm", new PlainSite.ViewModels.ContactFormViewModel()); }
     </div>
 </section>

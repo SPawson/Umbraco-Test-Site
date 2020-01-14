@@ -1,0 +1,20 @@
+﻿@model PlainSite.ViewModels.ContactFormViewModel
+
+@using(Html.BeginUmbracoForm("Submit", "ContactForm")) 
+{
+    <div>
+        @Html.TextBoxFor(m=>m.Firstname)
+    </div>
+    <div>
+        @Html.TextBoxFor(m=>m.Lastname)
+    </div>
+    <div>
+        @Html.TextBoxFor(m=>m.Email)
+    </div>
+    <div>
+        @Html.TextAreaFor(m=>m.Message)
+    </div>
+    <input type="submit" name="Submit" value="Submit" />
+}
+
+@Model.Email
