@@ -4,6 +4,20 @@
         Layout = "master.cshtml";
     }
 
+@{ 
+    var firstname = "";
+    var lastname = "";
+
+    if (TempData.ContainsKey("Firstname"))
+    {
+        firstname = TempData["Firstname"] as string;
+    }
+    if (TempData.ContainsKey("Lastname"))
+    {
+        lastname = TempData["Lastname"] as string;
+    }
+}
+
 <section id="main" class="wrapper">
     <div class="inner">
         <header class="major special">
@@ -17,8 +31,19 @@
     </div>
 </section>
 
+
+
 <section id="main" class="wrapper">
+
     <div class="inner">
-        @{Html.RenderPartial("ContactForm", new PlainSite.ViewModels.ContactFormViewModel()); }
+        @if (firstname == "" && lastname == "")
+        {
+            Html.RenderPartial("ContactForm", new PlainSite.ViewModels.ContactFormViewModel());
+        }
+        else
+        {
+            <p> Thank you for submitting the form @firstname @lastname</p>
+        }
+
     </div>
 </section>

@@ -26,7 +26,11 @@ namespace PlainSite.controller
                 Message = model.Message
             };
 
-            return View(response);
+            TempData["Firstname"] = response.Firstname;
+            TempData["Lastname"] = response.Lastname;
+
+            //return PartialView("/Views/Partials/ContactForm.cshtml", response);
+            return RedirectToCurrentUmbracoPage();
         }
     }
 }
